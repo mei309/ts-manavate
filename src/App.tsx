@@ -48,6 +48,7 @@ export default function ServerPaginationGrid() {
   React.useEffect(() => {
     //prevent calling backend twice on init (i still dont know why when i set in code it dose not call)
     if(!page) return;
+    //in real world probably should be a sorted array
     if(pages.hasOwnProperty(page)){
       setRows(pages[page]);
       return;
@@ -76,7 +77,8 @@ export default function ServerPaginationGrid() {
   React.useEffect(() => {
     let active = true;
     
-
+    //in case its 1 so setpage(1) wouldnt fire
+    setPage(0);
     (async () => {
       const newRows = await loadServerRows(0, gender, status, searchValue);
       

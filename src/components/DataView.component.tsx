@@ -49,7 +49,7 @@ export function DataView(props: any){
   };
 
   return (
-    <React.Fragment >
+    <React.Fragment>
       {props.viewType === 'table'? 
         <TableView rows={props.rows} onChildClick={handleClickOpen}/>
         :
@@ -63,7 +63,7 @@ export function DataView(props: any){
 
 function TableView(props: any){
   return (
-    <TableContainer sx={{ height: '67%' }}>
+    <TableContainer sx={{ maxHeight: '67%' }}>
       <Table sx={{ minWidth: 750 }}
         aria-labelledby="tableTitle"
           stickyHeader >
@@ -94,7 +94,7 @@ function TableView(props: any){
 
 function CardView(props: any){
   return (
-    <div style={{ height: '67%', overflow: 'auto' }}>
+    <div style={{ maxHeight: '67%', overflow: 'auto' }}>
       <Grid container spacing={2} direction="row" alignItems="flex-start">
         {props.rows.map((emp: any, rowIndex: number) => (
           <Grid item xs={12} sm={6} md={3} key={rowIndex}>
